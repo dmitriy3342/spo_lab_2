@@ -13,7 +13,7 @@ public class AntlrExprListner extends ExprBaseListener {
      *
      * <p>The default implementation does nothing.</p>
      */
-    @Override public void enterProg(ExprParser.ProgContext ctx) {
+    @Override public void enterStart(ExprParser.StartContext ctx) {
         System.out.println("enterProg");
         System.out.println(ctx.getText());
     }
@@ -22,7 +22,7 @@ public class AntlrExprListner extends ExprBaseListener {
      *
      * <p>The default implementation does nothing.</p>
      */
-    @Override public void exitProg(ExprParser.ProgContext ctx) {
+    @Override public void exitStart(ExprParser.StartContext ctx) {
         System.out.println("exitProg");
         System.out.println(ctx.getText());
     }

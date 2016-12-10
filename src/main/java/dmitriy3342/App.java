@@ -24,7 +24,7 @@ public class App {
         ExprParser parser = new ExprParser(tokens);
 
         // Specify our entry point
-        ExprParser.ProgContext progeContext = parser.prog();
+        ExprParser.StartContext progeContext = parser.start();
 
         // Walk it and attach our listener
         ParseTreeWalker walker = new ParseTreeWalker();
@@ -45,7 +45,7 @@ public class App {
         ExprParser parser = new ExprParser(tokens);
 
         // Specify our entry point
-        ExprParser.ProgContext progeContext = parser.prog();
+        ExprParser.StartContext progeContext = parser.start();
 
 
         ExprVisitor visitor = new ExprBaseVisitorImpl();
@@ -56,7 +56,7 @@ public class App {
 
     public static void main(String[] args) {
 
-       String expression = "\"(5-2)*(6-4)-2;\"";
+       String expression = "(5-2)*(6-4)-2;";
         visitProg(expression);
 
     }

@@ -13,7 +13,7 @@ public class ExprBaseVisitorImpl extends ExprBaseVisitor<Integer> {
 //    }
 
     @Override
-    public Integer visitProg(@NotNull ExprParser.ProgContext context) {
+    public Integer visitStart(@NotNull ExprParser.StartContext context) {
 
 
 
