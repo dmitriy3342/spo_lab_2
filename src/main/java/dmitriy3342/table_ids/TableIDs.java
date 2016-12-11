@@ -5,11 +5,16 @@ package dmitriy3342.table_ids;
  */
 
 public class TableIDs <T>{
-    private final static int TABLE_SIZE = 10;
+    private final int TABLE_SIZE ;
 
     private LinkedHashEntry<T>[] table;
 
-    TableIDs() {
+    public TableIDs() {
+        this(10);
+    }
+
+    public TableIDs(int tableSize) {
+        this.TABLE_SIZE = tableSize;
         this.table = new LinkedHashEntry[TABLE_SIZE];
     }
 

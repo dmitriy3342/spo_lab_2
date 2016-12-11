@@ -1,10 +1,12 @@
 package dmitriy3342;
 
+import dmitriy3342.scaner_expression.ExpressionLexer;
+import dmitriy3342.scaner_expression.ExpressionParser;
+import dmitriy3342.scaner_expression.ExpressionVisitor;
+import dmitriy3342.scaner_expression.ExpressionVisitorIml;
 import dmitriy3342.scanner.*;
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
-import org.antlr.v4.runtime.tree.TerminalNode;
 
 
 public class App {
@@ -56,8 +58,25 @@ public class App {
 
     public static void main(String[] args) {
 
-       String expression = "(5-2)*(6-4)-2;";
-        visitProg(expression);
+       String expression = "" +
+               "r=2^2;//asdfasfsdfasef\n" +
+               "print(4^3);//asdfasfsdfasef\n" +
+               "name=12*(5-6);\n" +
+               "date(14.1);\n" +
+               "accord(G#);\n" +
+               "print(name);//yuioiyoi;";
+
+
+        ANTLRInputStream in = new ANTLRInputStream(expression);
+        ExpressionLexer lexer = new ExpressionLexer(in);
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        ExpressionParser parser = new ExpressionParser(tokens);
+
+        ExpressionParser.StartContext progeContext = parser.start();
+
+        ExpressionVisitor visitor = new ExpressionVisitorIml();
+
+        visitor.visit(progeContext);
 
     }
 

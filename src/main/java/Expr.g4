@@ -2,7 +2,7 @@ grammar Expr;
 
 
 //Parser Rules
-start:	expr ';' ;
+start :	expr ';' ;
 
 expr:
     	left=expr op=('*'|'/') right=expr
